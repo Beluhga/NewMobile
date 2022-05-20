@@ -12,12 +12,15 @@
         }
     })
 
-    }
- 
+}
+    
+
+{
  // Validação do CPF
  function validacpf () {
 
     var cpf = document.formulario1.cpf_verifica.value;
+
     cpf = cpf.replace( "." , "" );
     cpf = cpf.replace( "-" , "" );
     cpf = cpf.replace( "." , "" );
@@ -33,7 +36,7 @@
     cpf == "77777777777" ||
     cpf == "88888888888" ||
     cpf == "99999999999"){
-    document.getElementById("cpf_verifica").style.backgroundColor = "#faa"; //isso deixa o campo avermelhado
+    document.getElementById("cpf_verifica").style.backgroundColor = "rgb(207,53,53)"; //isso deixa o campo avermelhado
     document.formulario1.cpf_verifica.focus();
     return false;
 
@@ -50,7 +53,7 @@
            cpf == "99999999999") {
     return false; 
 
-    } else {
+    }else {
     var soma = 0;
     soma = soma + (parseInt(cpf.substring( 0 , 1))) * 10;
     soma = soma + (parseInt(cpf.substring( 1 , 2))) * 9;
@@ -89,16 +92,16 @@
     if (
     (resto1 == (parseInt(cpf.substring( 9 , 10)))) &&
     (resto2 == (parseInt(cpf.substring( 10 , 11)))) ) {
-    alert("Certo");
+    document.getElementById("cpf_verifica").style.backgroundColor = "#4ECA64";
     return true;
     } else {
-    alert ("CPF inválido")
-    document.getElementById("cpf_verifica").style.backgroundColor = "#faa";
+    
+    document.getElementById("cpf_verifica").style.backgroundColor = "rgb(207,53,53)";
     document.formulario1.cpf_verifica.focus();
     return false;
     }
-    
-    }
+ }
+}   
     
 
     {
@@ -140,36 +143,23 @@
     }
 
     {
-        const form = document.getElementById('formulario1')
+        
+
+        const form = document.getElementById('Enviar')
 
             const nome =  document.getElementById('nome')
             const birth =  document.getElementById('birth')
             const phone =  document.getElementById('phone')
             const email =  document.getElementById('email')
-            const uf =  document.getElementById('uf')
-            const city =  document.getElementById('city')
             const district =  document.getElementById('district')
             const street =  document.getElementById('street')
+            const numberstreet =  document.getElementById('numberstreet')
             const complement =  document.getElementById('complement')
 
-            form.addEventListener("input", (e) =>{
-                e.preventDefault()
+            form.addEventListener("click", () =>{
+            // event.preventDefault()
 
-                checkInputs()
-            })
-
-            function checkInputs() {
-                const nomeValue = nome.value.trim()
-                const birthValue = birth.value.trim()
-                const phoneValue = phone.value.trim()
-                const emailValue = email.value.trim()
-                const ufValue = uf.value.trim()
-                const cityValue = city.value.trim()
-                const districtValue = district.value.trim()
-                const streetValue = street.value.trim()
-                const complementValue = complement.value.trim()
-            
-            if(nomeValue === ''){
+            if(nome.value === ''){
                 // mostrar o erro
                 // adicionar a classe error
                 errorValidation(nome, 'Preencha esse campo')
@@ -177,67 +167,62 @@
                 // adicionar a classe de sucesso
                 successValidation(nome)
             }
-            if(birthValue === ''){
+            if(birth.value === ''){
                
                 errorValidation(birth, 'Preencha esse campo')
             } else {
                 
                 successValidation(birth)
             }
-            if(phoneValue === ''){
+            if(phone.value === ''){
                 
                 errorValidation(phone, 'Preencha esse campo')
             } else {
                 
                 successValidation(phone)
             }
-            if(emailValue === ''){
+            if(email.value === ''){
               
                 errorValidation(email, 'Preencha esse campo')
             } else {
                
                 successValidation(email)
             }
-            if(ufValue === ''){
-             
-                errorValidation(uf, 'Preencha esse campo')
-            } else {
-               
-                successValidation(uf)
-            }
-            if(cityValue === ''){
-               
-                errorValidation(city, 'Preencha esse campo')
-            } else {
-                
-                successValidation(city)
-            }
-            if(districtValue === ''){
+            
+            if(district.value === ''){
                 
                 errorValidation(district, 'Preencha esse campo')
             } else {
                 
                 successValidation(district)
             }
-            if(streetValue === ''){
+            if(street.value === ''){
                 
                 errorValidation(street, 'Preencha esse campo')
             } else {
                
                 successValidation(street)
             }
-            if(complementValue === ''){
+            if(numberstreet.value === ''){
+               
+                errorValidation(numberstreet, 'Preencha esse campo')
+            } else {
+                
+                successValidation(numberstreet)
+            }
+            if(complement.value === ''){
 
                 errorValidation(complement, 'Preencha esse campo')
             } else {
                 successValidation(complement)
             }
-
-        }
+        
+            
+        
             function errorValidation(input, message){
                 const formGroup = input.parentElement; // para pegar o elemento pai do input
 
-                const small = formGroup.querySelector('small')
+                const small = formGroup.querySelector('small') // para mandar a mensagem caso esteja faltando algo no formulario
 
                 small.innerText = message
 
@@ -250,9 +235,6 @@
 
                 formGroup.className = 'form-group success'
             }
-            
-
+        })
+        
     }
-    
-
-    

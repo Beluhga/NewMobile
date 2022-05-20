@@ -11,7 +11,7 @@ echo '</pre>';
 */
 
 // Para tirar a mascara do CPF
-$cpf= $_POST['cpf'];
+$cpf= $_POST['cpf_verifica'];
 
 function limpaCPF($cpf){
     $cpf = trim($cpf);
@@ -82,7 +82,7 @@ if(!empty($_POST)) {
         
        }
    } catch (PDOException $e){
-       // die($e->getMessage());
+        // die($e->getMessage());
         header("Location: index.html:msgErro=Falha ao cadastrar...");
    }
 }else {
