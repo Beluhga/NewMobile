@@ -1,0 +1,11 @@
+.form-group.success input {
+    border: 2px solid #4ECA64;
+}
+
+.form-group.error input {
+    border: 2px solid rgb(207,53,53);
+}
+
+.form-control.error small{
+    visibility: visible;
+}

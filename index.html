@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="jquery-3.6.0.min.map.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="vanilla-masker-master/lib/vanilla-masker.js" defer></script>
+    <script src="BrazilianStates.js" defer></script>
+
+    <title>Registro</title>
+
+</head>
+<body>
+    <div id="form-container">
+        <div class="panel" id="form-box">
+            <form id="formulario1" name="formulario1" action="register.php" method="post" onSubmit="return validacpf();">
+                <fieldset>
+                <legend class="text-center">Pessoal</legend>
+                <div class="form-group">
+                    <label for="InputName" class="form-label">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Ex:Bruno Rodrigues" pattern="[a-z A-Z]+" autocomplete  />
+                <small>Error message</small>
+                </div>
+                <div class="form-group">
+                    <label for="InputBirth" class="form-label">Data de Nascimento</label>
+                    <input type="date" name="birth" id="birth" pattern="[1-9]" required />
+                </div>
+                <div class="form-group">
+                    <label for="InputCPF" class="form-label">CPF</label>
+                    <input type="text" name="cpf" id="cpf_verifica" autocomplete="off" maxlength="14" required />
+                </div>
+                <div class="form-group">
+                    <label for="InputPhone" class="form-label">Telefone</label>
+                    <input type="text" name="phone" id="phone" placeholder="Ex: (99)99999-9999" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}" maxlength="14" autocomplete required />
+                </div>
+                  
+                <div class="form-group">
+                    <label for="InputPhone" class="form-label">Email</label>
+                  <input type="email" name="email" id="email" minlength="6" multiple required autocomplete>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend class="text-center">Endereço</legend>
+
+                <div class="form-group">
+                <label for="uf" class="form-label">Estado</label>
+                <select name="uf" id="uf" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  required>
+                    <option selected value=""></option>
+                  </select>
+                </div>
+                  
+                <div class="form-group">
+                <label for="formFileSm" class="form-label">Cidade</label>
+                <select name="city" id="city" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"  required>
+                    <option selected value=""></option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputDistrict" class="form-label">Bairro</label>
+                    <input type="text" name="district" id="district" required autocomplete />
+                </div>
+                <div class="form-group">
+                    <label for="InputStreet" class="form-label">Rua</label>
+                    <input type="text" name="street" id="street"  required autocomplete/>
+                </div>
+
+                <div class="form-group">
+                    <label for="InputNumber" class="form-label">Numero</label>
+                    <input type="number" name="numberstreet" id="numberstreet" minlength="1" maxlength="1000" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="InputComplement" class="form-label">Complemento</label>
+                    <input type="text" name="complement" id="complement"  maxlength="50" required />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="text-center">Anuncio</legend>
+                  <div class="input-group">
+                    <span class="input-group-text">Observação</span>
+                    <textarea id="observation" name="observation" class="form-control" aria-label="With textarea"  maxlength="300"></textarea>
+                  </div>
+                  <label id="ByTyping">Máximo de 300 caracteres.</label>
+                  <button name="Enviar" id="Enviar" type="submit" value="Enviar">Enviar</button>
+            </fieldset>
+            <div id="resposta"></div>
+            
+            </form>
+        </div>
+    </div>
+</body>
+</html>
