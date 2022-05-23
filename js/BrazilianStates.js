@@ -4,6 +4,8 @@ const uf = document.getElementById("uf")
 const city = document.getElementById("city")
 
 
+// evento para entra as cidades
+// constantes para ja quando os estados ja forem selecionados, voce so escolhe a Cidade
 
 uf.addEventListener('change', async() =>{
     const urlCities= 'https://servicodados.ibge.gov.br/api/v1/localidades/estados/'+uf.value+'/municipios'
@@ -11,52 +13,35 @@ uf.addEventListener('change', async() =>{
     const response = await request.json()
 
 
-    let options = ''
+    let options =''
+
+    // para acessar as cidades
     response.forEach(function(cities){
         options += '<option>'+cities.nome+'</option>'
     })
     city.innerHTML = options
-    // cxomeça aqui
-    if(uf.value === ''){
-
-        errorValidation(uf, 'Preencha esse campo')
-    } else {
-        successValidation(uf)
-    }
-
-    
-
-    function errorValidation(option, message){
-        const formGroup = option.parentElement; // para pegar o elemento pai do input
-
-        const small = formGroup.querySelector('small')
-
-        small.innerText = message
-
-        formGroup.className = 'form-group error'
-
-    }
-
-    function successValidation(input){
-        const formGroup = input.parentElement;
-
-        formGroup.className = 'form-group success'
-    }
 })
 
 
 
-window.addEventListener('load', async() => {
-    const request = await fetch(ulrUF);
+// evento disparado ao carregar a pagina
+// preenche os Estados
+// o fetch substitui o XMLHttpRequest
+window.addEventListener('load', async() => { 
+    const request = await fetch(ulrUF);     
     const response = await request.json()
 
-    
+// Para colocar todas as siglas dos Estados
+
     const options = document.createElement("optgroup")
-    options.setAttribute('label','Estado')
+    options.setAttribute('label','')
     response.forEach(function(uf){
+
+// para criar as opçoes
         options.innerHTML+='<option>'+uf.sigla+'</opption>'
 
     })
+    // para acessar os estados
     uf.append(options)
     
 

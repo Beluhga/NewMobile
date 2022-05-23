@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
@@ -21,7 +21,14 @@ body{
     background-color: #fafafa;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    
+    margin: 100px 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 .text-center {
     background-color: #eee;
@@ -29,6 +36,10 @@ body{
 }
 #formulario1 {
     padding: 30px;
+}
+
+.form-group{
+    margin-top: 10px;
 }
 
 .form-group label{
@@ -56,6 +67,7 @@ body{
 
 }
 
+
 .form-group small {
     position: absolute;
     bottom: 0;
@@ -63,28 +75,26 @@ body{
     visibility: hidden;
 }
 
-.form-group.success input {
-    border: 2px solid #4ECA64;
+.input-group-text {
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
-.form-group.error input {
-    border: 2px solid rgb(207,53,53);
-}
-
-.form-control.error small{
-    visibility: visible;
-}
 
 .input-group div{
     display: inline-block;
     margin-bottom: 5px;
 }
 .input-group textarea {
-    border: 2px solid #f0f0f0;
-    display: block;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 14px;
-    width: 100%;
-    padding: 10px;
+    width: 100;
+    padding: 20px 100px;
+    position: fixed;
+    background: linear-gradient(90deg, #00dbde 0%, #fc00ff 100%);
+    border: 1px solid #fc00ff;
+    resize:none;
+    color: #000000;
 
 }
+

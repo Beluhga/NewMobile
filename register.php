@@ -41,7 +41,7 @@ if(!empty($_POST)) {
         observation)
      VALUES (
         :nome, 
-        :birth, 
+        :birth,
         :cpf,
         :phone, 
         :email, 
